@@ -3,6 +3,7 @@ import Header from './Header';
 import MainContent from './MainContent';
 import Footer from './Footer';
 import UserProfile from './UserProfile';
+import Counter from "./Counter";
 
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
