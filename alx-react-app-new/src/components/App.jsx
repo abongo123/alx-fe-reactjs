@@ -4,6 +4,10 @@ import MainContent from './MainContent';
 import Footer from './Footer';
 import UserProfile from './UserProfile';
 import Counter from "./Counter";
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+import Services from './Services';
 
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
