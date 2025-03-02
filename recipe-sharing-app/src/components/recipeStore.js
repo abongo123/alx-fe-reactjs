@@ -15,8 +15,19 @@ const useRecipeStore = create(set => ({
         set((state) => ({recipes: state.recipes.map((recipe) => 
         recipe.id ==id ? {...recipe, ...updateRecipe} : recipe),
     })),
-      setSearchTerm: (term) => set({ searchTerm: term }),
-  
+
+    setSearchTerm: (term) => set({ searchTerm: term }),
+
+    favorites: [],
+  addToFavorites: (id) =>
+    set(state => ({
+      favorites: [...state.favorites, id]
+    })),
+  removeFromFavorites: (id) =>
+    set(state => ({
+      favorites: state.favorites.filter(favId => favId !== id)
+    })),
+
     recommendations: [],
     generateRecommendation: () => set(state => {
         const recommended = state.recipes.filter(recipe =>
@@ -27,4 +38,3 @@ const useRecipeStore = create(set => ({
 }));
 
 export default useRecipeStore;
-
