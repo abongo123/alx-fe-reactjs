@@ -15,6 +15,8 @@ const useRecipeStore = create(set => ({
         set((state) => ({recipes: state.recipes.map((recipe) => 
         recipe.id ==id ? {...recipe, ...updateRecipe} : recipe),
     })),
+      setSearchTerm: (term) => set({ searchTerm: term }),
+  
     recommendations: [],
     generateRecommendation: () => set(state => {
         const recommended = state.recipes.filter(recipe =>
