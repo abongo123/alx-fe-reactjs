@@ -4,6 +4,7 @@ import HomePage from "./HomePage";
 import RecipeList from "./RecipeList";
 import RecipeDetails from "./RecipeDetails";
 import EditRecipeForm from "./EditRecipeForm";
+import AddRecipeForm from "./AddRecipeForm"
 
 function App() {
   return (
