@@ -14,6 +14,7 @@ function App() {
         <Route path="/recipes" element={<RecipeList />} />
         <Route path="/recipes/:id" element={<RecipeDetails />} />
         <Route path="/edit/:id" element={<EditRecipeForm />} />
+        <Route path="/add-recipe" element={<AddRecipeForm />} />
       </Routes>
     </Router>
   );
