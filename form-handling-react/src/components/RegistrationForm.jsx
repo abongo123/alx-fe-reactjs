@@ -26,9 +26,9 @@ function RegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-        <input type='text' name='username' placeholder='Your Username' value={FormData.name} onChange={handleSubmit}/>
-        <input type='email' name='email' placeholder='Input Email' value={FormData.email} onChange={handleSubmit}/>
-        <input type='password' name='password' placeholder='Your Password' value={FormData.password} onChange={handleSubmit}/>
+        <input type='text' name='username' placeholder='Your Username' value={FormData.username} onChange={handleChange}/>
+        <input type='email' name='email' placeholder='Input Email' value={FormData.email} onChange={handleChange}/>
+        <input type='password' name='password' placeholder='Your Password' value={FormData.password} onChange={handleChange}/>
         <button type='Submit'>Register</button>
 
 
