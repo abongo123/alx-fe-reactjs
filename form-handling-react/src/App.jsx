@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegistrationForm from './components/RegistrationForm'
+import FormikForm from "./components/formikForm";
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
   
   <BrowserRouter>
   <Routes>
-   <Route path="/register" element={<RegistrationForm />} />
+   <Route path="/register" element={<FormikForm />} />
   </Routes>
   
 
