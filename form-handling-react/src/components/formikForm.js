@@ -1,41 +1,59 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
-const validationSchema = Yup.object({
-  username: Yup.string().required("Username is required"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
-});
+import { useState } from "react";
 
 function FormikForm() {
-  return (
+    const [errors, setErrors] = useState({})
+
+return (
     <Formik
       initialValues={{ username: "", email: "", password: "" }}
-      validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
+        let newErrors = {};
+
+        if (!values.username) {
+          newErrors.username = "Username is required";
+        }
+        if (!values.email) {
+          newErrors.email = "Email Cannot be Blank";
+        } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+          newErrors.email = "Invalid email format";
+        }
+        if (!values.password) {
+          newErrors.password = "Password is required";
+        } else if (values.password.length < 6) {
+          newErrors.password = "Password must be at least 6 characters";
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+          setErrors(newErrors);
+          return;
+        }
+
         console.log("Form submitted:", values);
         alert("Registration successful!");
-        resetForm(); // Clear form after submission
+        resetForm();
+        setErrors({});
       }}
     >
-      {({ isSubmitting }) => (
-        <Form>
+      {({ values, handleChange, handleSubmit }) => (
+        <Form onSubmit={handleSubmit}>
           <div>
-            <Field type="text" name="username" placeholder="Your Username" />
-            <ErrorMessage name="username" component="div" style={{ color: "red" }} />
+            <Field type="text" name="username" placeholder="Your Username" onChange={handleChange} />
+            {errors.username && <div style={{ color: "red" }}>{errors.username}</div>}
           </div>
 
           <div>
-            <Field type="email" name="email" placeholder="Input Email" />
-            <ErrorMessage name="email" component="div" style={{ color: "red" }} />
+            <Field type="email" name="email" placeholder="Input Email" onChange={handleChange} />
+            {errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
           </div>
 
           <div>
-            <Field type="password" name="password" placeholder="Your Password" />
-            <ErrorMessage name="password" component="div" style={{ color: "red" }} />
+            <Field type="password" name="password" placeholder="Your Password" onChange={handleChange} />
+            {errors.password && <div style={{ color: "red" }}>{errors.password}</div>}
           </div>
 
-          <button type="submit" disabled={isSubmitting}>Register</button>
+          <button type="submit">Register</button>
         </Form>
       )}
     </Formik>
