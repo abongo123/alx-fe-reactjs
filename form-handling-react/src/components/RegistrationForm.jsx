@@ -1,9 +1,27 @@
-import useState from 'react'
-
+import { useState } from "react";
 
 function RegistrationForm() {
-    const [email, setEmail] = useState("")
-    const [password,setPassword] = useState("")
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.username || !formData.email || !formData.password) {
+      alert("All fields are required!");
+      return;
+    }
+    console.log("Form submitted:", formData);
+  };
    
 
   return (
