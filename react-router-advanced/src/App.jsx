@@ -7,6 +7,7 @@ import ProfileSettings from "./pages/ProfileSettings";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext"
 
 const ProtectedRoute = ({ children, isAuthenticated }) => {
   return isAuthenticated ? children : <Navigate to="/login" />;
