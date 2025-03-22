@@ -34,7 +34,7 @@ const AddRecipeForm = () => {
         console.log("Recipe Data Submitted:", newRecipe)
     }
   return (
-    <div className='min-h-screen bg-slate-500 p-6'>
+    <div className='min-h-screen md:grid-cols-2 bg-slate-500 p-6'>
         <h2 className='text-3xl font-bold text-center text-black mb-6'>Add Your Recipe</h2>
 
         <div className='bg-white p-6 rounded-lg max-w-3xl mx-auto'>
@@ -53,7 +53,7 @@ const AddRecipeForm = () => {
                     <label htmlFor='ingeredients' className='block text-gray-700 font-semibold mb-2'>Preparation Steps</label>
                     <textarea id='ingredients' value={ingredients} onChange={(e) => setIngredients(e.target.value)} className='w-full p-2 border rounded' placeholder='Enter preparation steps' rows="6"></textarea>
                 </div>
-                <button type='submit' className='bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-900'>
+                <button type='submit' className='bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-900 shadow'>
                     Submit Recipe
                 </button>
             </form>
