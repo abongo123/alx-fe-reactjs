@@ -11,7 +11,7 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-slate-500 p-6">
+        <div className="min-h-screen sm:grid-cols-1 bg-slate-500 p-6">
             <h1 className="text-3xl font-bold text-center text-black mb-6">Delicacy Recipes</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {recipes.map((recipe) => (
