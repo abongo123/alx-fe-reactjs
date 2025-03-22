@@ -28,6 +28,19 @@ const AddRecipeForm = () => {
                     <input type="text" id='title' value={title} onChange={(e) => setTitle(e.target.value)} className='w-full p-2 border rounded' placeholder='Enter Recipe Title' />
                 </div>
 
+                <div className='mb-4'> 
+                    <label htmlFor='ingeredients' className='block text-gray-700 font-semibold mb-2'>Ingredients</label>
+                    <textarea id='ingredients' value={ingredients} onChange={(e) => setIngredients(e.target.value)} className='w-full p-2 border rounded' placeholder='Enter ingredients' rows="4"></textarea>
+                </div>
+
+                <div className='mb-4'> 
+                    <label htmlFor='ingeredients' className='block text-gray-700 font-semibold mb-2'>Preparation Steps</label>
+                    <textarea id='ingredients' value={ingredients} onChange={(e) => setIngredients(e.target.value)} className='w-full p-2 border rounded' placeholder='Enter preparation steps' rows="6"></textarea>
+                </div>
+                <button type='submit' className='bg-blue-600 text-white'>
+
+                </button>
+
             </form>
         </div>
     </div>
