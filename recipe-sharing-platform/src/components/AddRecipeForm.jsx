@@ -5,9 +5,25 @@ const AddRecipeForm = () => {
     const [title,setTitle] =useState('')
     const [Ingredients, setIngredients] = useState('')
     const[steps, setSteps] =useState('')
+    const [errors, setErrors] = useState({});
+
+    const validate = () => {
+        let newErrors = {};
+        if (!title.trim()) newErrors.title = "Recipe title is required.";
+        if (!ingredients.trim()) newErrors.ingredients = "Ingredients are required.";
+        if (!steps.trim()) newErrors.steps = "Preparation steps are required.";
+        
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        if (!validate()) {
+            console.error("Validation failed", errors);
+            return;
+        }
 
         const newRecipe = {
             title,
@@ -37,10 +53,9 @@ const AddRecipeForm = () => {
                     <label htmlFor='ingeredients' className='block text-gray-700 font-semibold mb-2'>Preparation Steps</label>
                     <textarea id='ingredients' value={ingredients} onChange={(e) => setIngredients(e.target.value)} className='w-full p-2 border rounded' placeholder='Enter preparation steps' rows="6"></textarea>
                 </div>
-                <button type='submit' className='bg-blue-600 text-white'>
-
+                <button type='submit' className='bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-900'>
+                    Submit Recipe
                 </button>
-
             </form>
         </div>
     </div>
